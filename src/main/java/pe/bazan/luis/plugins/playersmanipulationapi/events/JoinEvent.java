@@ -1,9 +1,9 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.events;
+package pe.bazan.luis.plugins.playersmanipulationapi.events;
 
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import pe.bazan.luis.plugins.minecraftplugintemplate.enums.MessageKey;
-import pe.bazan.luis.plugins.minecraftplugintemplate.utils.Messages;
+import pe.bazan.luis.plugins.playersmanipulationapi.enums.MessageKey;
+import pe.bazan.luis.plugins.playersmanipulationapi.utils.Messages;
 
 public class JoinEvent implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {

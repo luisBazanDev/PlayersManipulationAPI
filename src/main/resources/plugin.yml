@@ -1,11 +1,13 @@
-name: MinecraftPluginTemplate
+name: PlayersManipulationAPI
 version: '${project.version}'
-main: pe.bazan.luis.plugins.minecraftplugintemplate.MinecraftPluginTemplate
+main: pe.bazan.luis.plugins.playersmanipulationapi.PlayersManipulationAPI
 api-version: '1.20'
 authors: [Luis Bazan]
-description: A Minecraft plugin template
+depend:
+  - KitsAPI
+description: An API to easy players management for server events or other occasions
 commands:
-  plugin-command:
-    permission: MinecraftPluginTemplate.commands
+  playersmanipulationapi:
+    permission: manipulationapi.commands
     description: Main command of the plugin
-    usage: /plugin-command help
+    usage: /playersmanipulationapi help

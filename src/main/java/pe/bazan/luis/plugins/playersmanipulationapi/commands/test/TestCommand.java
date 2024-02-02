@@ -1,14 +1,14 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.commands.test;
+package pe.bazan.luis.plugins.playersmanipulationapi.commands.test;
 
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import pe.bazan.luis.plugins.minecraftplugintemplate.MinecraftPluginTemplate;
-import pe.bazan.luis.plugins.minecraftplugintemplate.commands.Command;
-import pe.bazan.luis.plugins.minecraftplugintemplate.commands.CommandInfo;
-import pe.bazan.luis.plugins.minecraftplugintemplate.enums.MessageKey;
-import pe.bazan.luis.plugins.minecraftplugintemplate.utils.Messages;
+import pe.bazan.luis.plugins.playersmanipulationapi.PlayersManipulationAPI;
+import pe.bazan.luis.plugins.playersmanipulationapi.commands.Command;
+import pe.bazan.luis.plugins.playersmanipulationapi.commands.CommandInfo;
+import pe.bazan.luis.plugins.playersmanipulationapi.enums.MessageKey;
+import pe.bazan.luis.plugins.playersmanipulationapi.utils.Messages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +16,13 @@ import java.util.List;
 @CommandInfo(
         name = "test",
         pattern = "test",
-        usage = "/plugin-command test <player>",
+        usage = "/manipulationapi test <player>",
         desc = "Only a test command",
-        permission = "MinecraftPluginTemplate.commands.test.test"
+        permission = "PlayersManipulationAPI.commands.test.test"
 )
 public class TestCommand implements Command {
     @Override
-    public boolean execute(MinecraftPluginTemplate plugin, CommandSender sender, String... args) {
+    public boolean execute(PlayersManipulationAPI plugin, CommandSender sender, String... args) {
         if (args.length == 0) {
             sender.sendMessage(Messages.getMessage(MessageKey.CMD_TEST_NO_PLAYER));
         } else {
@@ -32,7 +32,7 @@ public class TestCommand implements Command {
     }
 
     @Override
-    public List<String> tab(MinecraftPluginTemplate plugin, Player player, String... args) {
+    public List<String> tab(PlayersManipulationAPI plugin, Player player, String... args) {
         List<String> complete = new ArrayList<>();
         if (args.length == 1) {
             for (String string : Bukkit.getOnlinePlayers().stream().map(x -> x.getName().toLowerCase()).toList()) {

@@ -1,14 +1,12 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.configs;
+package pe.bazan.luis.plugins.playersmanipulationapi.configs;
 
-import pe.bazan.luis.plugins.minecraftplugintemplate.MinecraftPluginTemplate;
-
-import javax.annotation.Nullable;
+import pe.bazan.luis.plugins.playersmanipulationapi.PlayersManipulationAPI;
 
 public class MessagesConfig {
     private CustomConfig configFile;
-    private MinecraftPluginTemplate plugin;
+    private PlayersManipulationAPI plugin;
 
-    public MessagesConfig(MinecraftPluginTemplate plugin) {
+    public MessagesConfig(PlayersManipulationAPI plugin) {
         this.plugin = plugin;
         registerConfig();
     }
@@ -17,7 +15,7 @@ public class MessagesConfig {
      * Register configuration file or create it based on plugin resources
      */
     private void registerConfig() {
-        configFile = new CustomConfig("configs/config.yml", plugin);
+        configFile = new CustomConfig("messages/EN_US.yml", plugin);
         configFile.registerConfig();
     }
 

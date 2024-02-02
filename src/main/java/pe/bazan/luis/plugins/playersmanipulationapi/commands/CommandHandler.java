@@ -1,22 +1,22 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.commands;
+package pe.bazan.luis.plugins.playersmanipulationapi.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import pe.bazan.luis.plugins.minecraftplugintemplate.MinecraftPluginTemplate;
-import pe.bazan.luis.plugins.minecraftplugintemplate.commands.test.TestCommand;
+import pe.bazan.luis.plugins.playersmanipulationapi.PlayersManipulationAPI;
+import pe.bazan.luis.plugins.playersmanipulationapi.commands.test.TestCommand;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CommandHandler implements CommandExecutor, TabCompleter {
-    private final MinecraftPluginTemplate plugin;
+    private final PlayersManipulationAPI plugin;
     private Map<String, Command> commands;
 
-    public CommandHandler(MinecraftPluginTemplate plugin) {
+    public CommandHandler(PlayersManipulationAPI plugin) {
         this.plugin = plugin;
         registerCommands();
     }
@@ -122,7 +122,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
             if (!sender.hasPermission(info.permission())) continue;
 
             StringBuilder builder;
-            if (info.permission().startsWith(MinecraftPluginTemplate.pluginId + ".commands.test")) {
+            if (info.permission().startsWith(PlayersManipulationAPI.pluginId + ".commands.test")) {
                 builder = test;
             } else {
                 builder = user;

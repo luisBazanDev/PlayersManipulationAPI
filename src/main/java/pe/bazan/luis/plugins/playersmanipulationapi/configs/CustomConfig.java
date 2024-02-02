@@ -1,4 +1,4 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.configs;
+package pe.bazan.luis.plugins.playersmanipulationapi.configs;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

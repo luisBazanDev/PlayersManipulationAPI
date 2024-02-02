@@ -1,4 +1,4 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.enums;
+package pe.bazan.luis.plugins.playersmanipulationapi.enums;
 
 public enum MessageKey {
     WELCOME_MSG("messages.welcome"),

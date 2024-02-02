@@ -1,4 +1,4 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.commands;
+package pe.bazan.luis.plugins.playersmanipulationapi.commands;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

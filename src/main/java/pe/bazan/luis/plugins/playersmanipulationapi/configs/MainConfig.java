@@ -1,16 +1,16 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate.configs;
+package pe.bazan.luis.plugins.playersmanipulationapi.configs;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import pe.bazan.luis.plugins.minecraftplugintemplate.MinecraftPluginTemplate;
+import pe.bazan.luis.plugins.playersmanipulationapi.PlayersManipulationAPI;
 
 public class MainConfig {
     private CustomConfig configFile;
-    private MinecraftPluginTemplate plugin;
+    private PlayersManipulationAPI plugin;
     // --- Variables to config
     private boolean enabled;
     // ---
 
-    public MainConfig(MinecraftPluginTemplate plugin) {
+    public MainConfig(PlayersManipulationAPI plugin) {
         this.plugin = plugin;
         registerConfig();
     }

@@ -1,16 +1,14 @@
-package pe.bazan.luis.plugins.minecraftplugintemplate;
+package pe.bazan.luis.plugins.playersmanipulationapi;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import pe.bazan.luis.plugins.minecraftplugintemplate.commands.CommandHandler;
-import pe.bazan.luis.plugins.minecraftplugintemplate.configs.MainConfig;
-import pe.bazan.luis.plugins.minecraftplugintemplate.configs.MessagesConfig;
-import pe.bazan.luis.plugins.minecraftplugintemplate.events.JoinEvent;
-import pe.bazan.luis.plugins.minecraftplugintemplate.utils.UpdateChecker;
+import pe.bazan.luis.plugins.playersmanipulationapi.commands.CommandHandler;
+import pe.bazan.luis.plugins.playersmanipulationapi.configs.MainConfig;
+import pe.bazan.luis.plugins.playersmanipulationapi.configs.MessagesConfig;
+import pe.bazan.luis.plugins.playersmanipulationapi.events.JoinEvent;
 
-public final class MinecraftPluginTemplate extends JavaPlugin {
-    private static MinecraftPluginTemplate instance;
-    public static String pluginId = "MinecraftPluginTemplate";
-    private UpdateChecker updateChecker = new UpdateChecker();
+public final class PlayersManipulationAPI extends JavaPlugin {
+    private static PlayersManipulationAPI instance;
+    public static String pluginId = "PlayersManipulationAPI";
     private MainConfig mainConfig;
     private MessagesConfig messagesConfig;
     private CommandHandler commandHandler;
@@ -23,7 +21,7 @@ public final class MinecraftPluginTemplate extends JavaPlugin {
         loadConfigs();
         setUpCommandHandler();
 
-        updateChecker.check();
+        registerEvents();
     }
 
     @Override
@@ -46,15 +44,14 @@ public final class MinecraftPluginTemplate extends JavaPlugin {
      */
     private void setUpCommandHandler() {
         commandHandler = new CommandHandler(this);
-        getCommand("plugin-command").setExecutor(commandHandler);
-        getCommand("plugin-command").setTabCompleter(commandHandler);
+        getCommand("playersmanipulationapi").setExecutor(commandHandler);
+        getCommand("playersmanipulationapi").setTabCompleter(commandHandler);
     }
 
     /**
      * Register events of the plugin
      */
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(updateChecker, this);
         getServer().getPluginManager().registerEvents(new JoinEvent(), this);
     }
 
@@ -64,7 +61,7 @@ public final class MinecraftPluginTemplate extends JavaPlugin {
      * Singleton pattern
      * @return Unique instance of the plugin
      */
-    public static MinecraftPluginTemplate getInstance() {
+    public static PlayersManipulationAPI getInstance() {
         return instance;
     }
 
