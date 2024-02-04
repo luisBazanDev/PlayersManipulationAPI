@@ -1,5 +1,6 @@
 messages:
   welcome: "Hello from the plugin!"
+  you_cant_join: "You can't join, now."
 commands:
   test:
     no_player: "Hello world"

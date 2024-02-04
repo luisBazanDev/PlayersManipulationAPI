@@ -4,7 +4,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pe.bazan.luis.plugins.playersmanipulationapi.commands.CommandHandler;
 import pe.bazan.luis.plugins.playersmanipulationapi.configs.MainConfig;
 import pe.bazan.luis.plugins.playersmanipulationapi.configs.MessagesConfig;
-import pe.bazan.luis.plugins.playersmanipulationapi.events.JoinEvent;
+import pe.bazan.luis.plugins.playersmanipulationapi.domain.PlayerManipulated;
+import pe.bazan.luis.plugins.playersmanipulationapi.events.ConnectionEvents;
+
+import javax.annotation.Nullable;
+import java.util.HashMap;
 
 public final class PlayersManipulationAPI extends JavaPlugin {
     private static PlayersManipulationAPI instance;
@@ -12,11 +16,14 @@ public final class PlayersManipulationAPI extends JavaPlugin {
     private MainConfig mainConfig;
     private MessagesConfig messagesConfig;
     private CommandHandler commandHandler;
+    private HashMap<String, PlayerManipulated> players;
 
     @Override
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+
+        players = new HashMap<>();
 
         loadConfigs();
         setUpCommandHandler();
@@ -52,7 +59,7 @@ public final class PlayersManipulationAPI extends JavaPlugin {
      * Register events of the plugin
      */
     private void registerEvents() {
-        getServer().getPluginManager().registerEvents(new JoinEvent(), this);
+        getServer().getPluginManager().registerEvents(new ConnectionEvents(), this);
     }
 
     // --- Getters and Setters
@@ -71,5 +78,10 @@ public final class PlayersManipulationAPI extends JavaPlugin {
 
     public MessagesConfig getMessagesConfig() {
         return messagesConfig;
+    }
+
+    @Nullable
+    public static PlayerManipulated getPlayerManipulated(String nick) {
+        return instance.players.get(nick);
     }
 }

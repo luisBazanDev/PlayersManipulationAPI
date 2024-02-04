@@ -21,7 +21,7 @@ public class PlayerManipulated {
     private Location spawnLocation;
     private Kit kit;
 
-    public PlayerManipulated(Player player) {
+    public PlayerManipulated(OfflinePlayer player) {
         this.offlinePlayer = player;
         this.canMove = true;
         this.canJoinServer = true;
@@ -63,6 +63,11 @@ public class PlayerManipulated {
     public Kit getKit() {
         return kit;
     }
+
+    public boolean isOnline() {
+        return offlinePlayer.isOnline();
+    }
+
     // Setters
 
     public void setCanMove(boolean canMove) {

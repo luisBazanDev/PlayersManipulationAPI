@@ -10,12 +10,12 @@ public class Messages {
         return PlayersManipulationAPI.getInstance().getMessagesConfig().get(key.toString());
     }
 
-    public Component formatMsg(String text) {
+    public static Component formatMsg(String text) {
         return Component.text(text);
     }
 
     @Deprecated
-    public Component formatOldColorsMsg(String text) {
+    public static Component formatOldColorsMsg(String text) {
         return Component.text(ChatColor.translateAlternateColorCodes('&', text));
     }
 }
